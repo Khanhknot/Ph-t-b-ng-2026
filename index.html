@@ -248,32 +248,9 @@
       }
     }
 
-    .result-badge {
-      display: inline-block;
-      font-size: 0.65rem;
-      font-weight: 700;
-      letter-spacing: 0.15em;
-      text-transform: uppercase;
-      padding: 0.25rem 0.6rem;
-      border-radius: 2px;
-      margin-bottom: 0.75rem;
-    }
-
-    .badge-cn {
-      background: rgba(26, 107, 60, 0.25);
-      color: #4ade80;
-      border: 1px solid rgba(74, 222, 128, 0.3);
-    }
-
-    .badge-ks {
-      background: rgba(37, 99, 235, 0.2);
-      color: #93c5fd;
-      border: 1px solid rgba(147, 197, 253, 0.3);
-    }
-
     .stt-display {
       text-align: center;
-      margin: 0.5rem 0 1rem;
+      margin: 0 0 1.5rem;
     }
 
     .stt-label {
@@ -295,31 +272,26 @@
 
     .stt-info-row {
       display: flex;
+      justify-content: center;
       gap: 1rem;
       margin-top: 0.75rem;
     }
 
     .info-chip {
-      flex: 1;
       background: rgba(255, 255, 255, 0.04);
       border: 1px solid rgba(255, 255, 255, 0.08);
       border-radius: 3px;
-      padding: 0.6rem 0.75rem;
+      padding: 0.6rem 1.5rem;
       text-align: center;
-    }
-
-    .info-chip-label {
-      font-size: 0.6rem;
-      letter-spacing: 0.12em;
-      text-transform: uppercase;
-      color: var(--text-muted);
-      margin-bottom: 0.2rem;
+      min-width: 140px;
     }
 
     .info-chip-value {
-      font-size: 0.95rem;
+      font-size: 1.1rem;
       font-weight: 500;
       color: var(--white);
+      letter-spacing: 0.05em;
+      text-transform: uppercase;
     }
 
     /* Not found */
@@ -375,9 +347,9 @@
     </div>
 
     <div class="input-section">
-      <label for="shsv-input">Nhập MSSV</label>
+      <label for="shsv-input">Nhập Mã số sinh viên</label>
       <div class="input-wrapper">
-        <input type="text" id="shsv-input" placeholder="VD: 20211583" inputmode="numeric" autocomplete="off"
+        <input type="text" id="shsv-input" placeholder="VD: 20211999" inputmode="numeric" autocomplete="off"
           spellcheck="false" />
         <button onclick="lookup()">Tra cứu</button>
       </div>
@@ -411,22 +383,13 @@
       const record = lookup_map[val];
 
       if (record) {
-        const isCN = record.Bang === 'Cử nhân';
-        const badgeClass = isCN ? 'badge-cn' : 'badge-ks';
-
         resultDiv.innerHTML = `
           <div class="result-found">
-            <span class="result-badge ${badgeClass}">${record.Bang}</span>
             <div class="stt-display">
               <div class="stt-number">${record.STT}</div>
             </div>
             <div class="stt-info-row">
               <div class="info-chip">
-                <div class="info-chip-label">MSSV</div>
-                <div class="info-chip-value">${record.SHSV}</div>
-              </div>
-              <div class="info-chip">
-                <div class="info-chip-label">Loại bằng</div>
                 <div class="info-chip-value">${record.Bang}</div>
               </div>
             </div>
