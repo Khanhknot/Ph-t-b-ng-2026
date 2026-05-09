@@ -1,12 +1,21 @@
 <!DOCTYPE html>
 <html lang="vi">
+
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Tra Cứu Số Thứ Tự</title>
-  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700;900&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet" />
+  <title>Tra Cứu Thứ Tự Nhận Bằng</title>
+  <link
+    href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700;900&family=DM+Sans:wght@300;400;500&display=swap"
+    rel="stylesheet" />
   <style>
-    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    *,
+    *::before,
+    *::after {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
 
     :root {
       --navy: #0d1b2a;
@@ -24,8 +33,8 @@
       min-height: 100vh;
       background-color: var(--navy);
       background-image:
-        radial-gradient(ellipse at 20% 20%, rgba(201,168,76,0.08) 0%, transparent 50%),
-        radial-gradient(ellipse at 80% 80%, rgba(201,168,76,0.05) 0%, transparent 50%);
+        radial-gradient(ellipse at 20% 20%, rgba(201, 168, 76, 0.08) 0%, transparent 50%),
+        radial-gradient(ellipse at 80% 80%, rgba(201, 168, 76, 0.05) 0%, transparent 50%);
       display: flex;
       flex-direction: column;
       align-items: center;
@@ -48,7 +57,7 @@
       width: 100%;
       max-width: 520px;
       background: var(--navy-mid);
-      border: 1px solid rgba(201,168,76,0.25);
+      border: 1px solid rgba(201, 168, 76, 0.25);
       border-radius: 4px;
       padding: 2.5rem 2rem;
       position: relative;
@@ -66,8 +75,18 @@
       border-style: solid;
       opacity: 0.6;
     }
-    .card::before { top: 12px; left: 12px; border-width: 2px 0 0 2px; }
-    .card::after  { bottom: 12px; right: 12px; border-width: 0 2px 2px 0; }
+
+    .card::before {
+      top: 12px;
+      left: 12px;
+      border-width: 2px 0 0 2px;
+    }
+
+    .card::after {
+      bottom: 12px;
+      right: 12px;
+      border-width: 0 2px 2px 0;
+    }
 
     .header {
       text-align: center;
@@ -85,10 +104,11 @@
     .logo-divider {
       height: 1px;
       flex: 1;
-      background: linear-gradient(90deg, transparent, rgba(201,168,76,0.5));
+      background: linear-gradient(90deg, transparent, rgba(201, 168, 76, 0.5));
     }
+
     .logo-divider.right {
-      background: linear-gradient(90deg, rgba(201,168,76,0.5), transparent);
+      background: linear-gradient(90deg, rgba(201, 168, 76, 0.5), transparent);
     }
 
     .logo-diamond {
@@ -145,8 +165,8 @@
 
     input[type="text"] {
       flex: 1;
-      background: rgba(255,255,255,0.04);
-      border: 1px solid rgba(201,168,76,0.3);
+      background: rgba(255, 255, 255, 0.04);
+      border: 1px solid rgba(201, 168, 76, 0.3);
       border-radius: 3px;
       padding: 0.75rem 1rem;
       font-family: 'DM Sans', sans-serif;
@@ -158,10 +178,14 @@
       letter-spacing: 0.05em;
     }
 
-    input[type="text"]::placeholder { color: rgba(255,255,255,0.2); font-weight: 300; }
+    input[type="text"]::placeholder {
+      color: rgba(255, 255, 255, 0.2);
+      font-weight: 300;
+    }
+
     input[type="text"]:focus {
       border-color: var(--gold);
-      background: rgba(201,168,76,0.06);
+      background: rgba(201, 168, 76, 0.06);
     }
 
     button {
@@ -180,8 +204,13 @@
       white-space: nowrap;
     }
 
-    button:hover { background: var(--gold-light); }
-    button:active { transform: scale(0.97); }
+    button:hover {
+      background: var(--gold-light);
+    }
+
+    button:active {
+      transform: scale(0.97);
+    }
 
     /* Result area */
     #result {
@@ -189,13 +218,13 @@
       display: flex;
       align-items: center;
       justify-content: center;
-      border-top: 1px solid rgba(201,168,76,0.15);
+      border-top: 1px solid rgba(201, 168, 76, 0.15);
       padding-top: 1.5rem;
       transition: opacity 0.3s;
     }
 
     .placeholder-text {
-      color: rgba(255,255,255,0.15);
+      color: rgba(255, 255, 255, 0.15);
       font-size: 0.85rem;
       letter-spacing: 0.05em;
       text-align: center;
@@ -208,8 +237,15 @@
     }
 
     @keyframes fadeUp {
-      from { opacity: 0; transform: translateY(10px); }
-      to   { opacity: 1; transform: translateY(0); }
+      from {
+        opacity: 0;
+        transform: translateY(10px);
+      }
+
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
     }
 
     .result-badge {
@@ -223,8 +259,17 @@
       margin-bottom: 0.75rem;
     }
 
-    .badge-cn { background: rgba(26,107,60,0.25); color: #4ade80; border: 1px solid rgba(74,222,128,0.3); }
-    .badge-ks { background: rgba(37,99,235,0.2); color: #93c5fd; border: 1px solid rgba(147,197,253,0.3); }
+    .badge-cn {
+      background: rgba(26, 107, 60, 0.25);
+      color: #4ade80;
+      border: 1px solid rgba(74, 222, 128, 0.3);
+    }
+
+    .badge-ks {
+      background: rgba(37, 99, 235, 0.2);
+      color: #93c5fd;
+      border: 1px solid rgba(147, 197, 253, 0.3);
+    }
 
     .stt-display {
       text-align: center;
@@ -245,7 +290,7 @@
       font-weight: 900;
       color: var(--gold);
       line-height: 1;
-      text-shadow: 0 0 40px rgba(201,168,76,0.3);
+      text-shadow: 0 0 40px rgba(201, 168, 76, 0.3);
     }
 
     .stt-info-row {
@@ -256,8 +301,8 @@
 
     .info-chip {
       flex: 1;
-      background: rgba(255,255,255,0.04);
-      border: 1px solid rgba(255,255,255,0.08);
+      background: rgba(255, 255, 255, 0.04);
+      border: 1px solid rgba(255, 255, 255, 0.08);
       border-radius: 3px;
       padding: 0.6rem 0.75rem;
       text-align: center;
@@ -305,19 +350,20 @@
       width: 100%;
       max-width: 520px;
       height: 1px;
-      background: linear-gradient(90deg, transparent, rgba(201,168,76,0.2), transparent);
+      background: linear-gradient(90deg, transparent, rgba(201, 168, 76, 0.2), transparent);
       margin-top: 1.5rem;
     }
 
     .footer-text {
       margin-top: 1rem;
       font-size: 0.65rem;
-      color: rgba(255,255,255,0.15);
+      color: rgba(255, 255, 255, 0.15);
       letter-spacing: 0.08em;
       text-transform: uppercase;
     }
   </style>
 </head>
+
 <body>
 
   <div class="top-border"></div>
@@ -332,20 +378,14 @@
         <div class="logo-divider right"></div>
       </div>
       <h1>Tra Cứu Số Thứ Tự</h1>
-      <p class="subtitle">Nhập số hiệu sinh viên để xem STT nhận bằng</p>
+      <p class="subtitle">Nhập Mã Số Sinh Viên </p>
     </div>
 
     <div class="input-section">
-      <label for="shsv-input">Số Hiệu Sinh Viên</label>
+      <label for="shsv-input">MSSV</label>
       <div class="input-wrapper">
-        <input
-          type="text"
-          id="shsv-input"
-          placeholder="VD: 20211583"
-          inputmode="numeric"
-          autocomplete="off"
-          spellcheck="false"
-        />
+        <input type="text" id="shsv-input" placeholder="VD: 20211583" inputmode="numeric" autocomplete="off"
+          spellcheck="false" />
         <button onclick="lookup()">Tra cứu</button>
       </div>
     </div>
@@ -359,7 +399,7 @@
   <p class="footer-text">HUST &nbsp;·&nbsp; Khoa Điện tử</p>
 
   <script>
-    const DATA = [{"STT":1,"Bang":"Cử nhân","SHSV":20191374},{"STT":2,"Bang":"Cử nhân","SHSV":20191379},{"STT":3,"Bang":"Cử nhân","SHSV":20211583},{"STT":4,"Bang":"Cử nhân","SHSV":20210506},{"STT":5,"Bang":"Cử nhân","SHSV":20211607},{"STT":6,"Bang":"Cử nhân","SHSV":20211610},{"STT":7,"Bang":"Cử nhân","SHSV":20211613},{"STT":8,"Bang":"Cử nhân","SHSV":20191216},{"STT":9,"Bang":"Cử nhân","SHSV":20191233},{"STT":10,"Bang":"Cử nhân","SHSV":20191276},{"STT":11,"Bang":"Cử nhân","SHSV":20191238},{"STT":12,"Bang":"Cử nhân","SHSV":20201839},{"STT":13,"Bang":"Cử nhân","SHSV":20201944},{"STT":14,"Bang":"Cử nhân","SHSV":20201945},{"STT":15,"Bang":"Cử nhân","SHSV":20212228},{"STT":16,"Bang":"Cử nhân","SHSV":20212143},{"STT":17,"Bang":"Cử nhân","SHSV":20212167},{"STT":18,"Bang":"Cử nhân","SHSV":20212197},{"STT":19,"Bang":"Cử nhân","SHSV":20212201},{"STT":20,"Bang":"Cử nhân","SHSV":20212204},{"STT":21,"Bang":"Cử nhân","SHSV":20212208},{"STT":22,"Bang":"Cử nhân","SHSV":20212225},{"STT":23,"Bang":"Cử nhân","SHSV":20220002},{"STT":24,"Bang":"Cử nhân","SHSV":20180717},{"STT":25,"Bang":"Cử nhân","SHSV":20190981},{"STT":26,"Bang":"Cử nhân","SHSV":20191383},{"STT":27,"Bang":"Cử nhân","SHSV":20190979},{"STT":28,"Bang":"Cử nhân","SHSV":20201418},{"STT":29,"Bang":"Cử nhân","SHSV":20201503},{"STT":30,"Bang":"Cử nhân","SHSV":20201570},{"STT":31,"Bang":"Cử nhân","SHSV":20201665},{"STT":32,"Bang":"Cử nhân","SHSV":20201705},{"STT":33,"Bang":"Cử nhân","SHSV":20201373},{"STT":34,"Bang":"Cử nhân","SHSV":20201542},{"STT":35,"Bang":"Cử nhân","SHSV":20201562},{"STT":36,"Bang":"Cử nhân","SHSV":20201591},{"STT":37,"Bang":"Cử nhân","SHSV":20201438},{"STT":38,"Bang":"Cử nhân","SHSV":20201707},{"STT":39,"Bang":"Cử nhân","SHSV":20201346},{"STT":40,"Bang":"Cử nhân","SHSV":20201459},{"STT":41,"Bang":"Cử nhân","SHSV":20201554},{"STT":42,"Bang":"Cử nhân","SHSV":20201668},{"STT":43,"Bang":"Cử nhân","SHSV":20201718},{"STT":44,"Bang":"Cử nhân","SHSV":20201432},{"STT":45,"Bang":"Cử nhân","SHSV":20201479},{"STT":46,"Bang":"Cử nhân","SHSV":20201807},{"STT":47,"Bang":"Cử nhân","SHSV":20201339},{"STT":48,"Bang":"Cử nhân","SHSV":20201566},{"STT":49,"Bang":"Cử nhân","SHSV":20201586},{"STT":50,"Bang":"Cử nhân","SHSV":20201701},{"STT":51,"Bang":"Cử nhân","SHSV":20200642},{"STT":52,"Bang":"Cử nhân","SHSV":20201623},{"STT":53,"Bang":"Cử nhân","SHSV":20201662},{"STT":54,"Bang":"Cử nhân","SHSV":20201722},{"STT":55,"Bang":"Cử nhân","SHSV":20201758},{"STT":56,"Bang":"Cử nhân","SHSV":20201492},{"STT":57,"Bang":"Cử nhân","SHSV":20201502},{"STT":58,"Bang":"Cử nhân","SHSV":20201550},{"STT":59,"Bang":"Cử nhân","SHSV":20201776},{"STT":60,"Bang":"Cử nhân","SHSV":20211641},{"STT":61,"Bang":"Cử nhân","SHSV":20211689},{"STT":62,"Bang":"Cử nhân","SHSV":20211699},{"STT":63,"Bang":"Cử nhân","SHSV":20211715},{"STT":64,"Bang":"Cử nhân","SHSV":20211763},{"STT":65,"Bang":"Cử nhân","SHSV":20211863},{"STT":66,"Bang":"Cử nhân","SHSV":20211928},{"STT":67,"Bang":"Cử nhân","SHSV":20211938},{"STT":68,"Bang":"Cử nhân","SHSV":20211711},{"STT":69,"Bang":"Cử nhân","SHSV":20211716},{"STT":70,"Bang":"Cử nhân","SHSV":20211824},{"STT":71,"Bang":"Cử nhân","SHSV":20211853},{"STT":72,"Bang":"Cử nhân","SHSV":20211939},{"STT":73,"Bang":"Cử nhân","SHSV":20211986},{"STT":74,"Bang":"Cử nhân","SHSV":20211998},{"STT":75,"Bang":"Cử nhân","SHSV":20212085},{"STT":76,"Bang":"Cử nhân","SHSV":20212004},{"STT":77,"Bang":"Cử nhân","SHSV":20212015},{"STT":78,"Bang":"Cử nhân","SHSV":20210858},{"STT":79,"Bang":"Cử nhân","SHSV":20212108},{"STT":80,"Bang":"Cử nhân","SHSV":20211701},{"STT":81,"Bang":"Cử nhân","SHSV":20212034},{"STT":82,"Bang":"Cử nhân","SHSV":20212053},{"STT":83,"Bang":"Cử nhân","SHSV":20212064},{"STT":84,"Bang":"Cử nhân","SHSV":20211770},{"STT":85,"Bang":"Cử nhân","SHSV":20211826},{"STT":86,"Bang":"Cử nhân","SHSV":20211941},{"STT":87,"Bang":"Cử nhân","SHSV":20211634},{"STT":88,"Bang":"Cử nhân","SHSV":20211645},{"STT":89,"Bang":"Cử nhân","SHSV":20211719},{"STT":90,"Bang":"Cử nhân","SHSV":20211771},{"STT":91,"Bang":"Cử nhân","SHSV":20210391},{"STT":92,"Bang":"Cử nhân","SHSV":20211844},{"STT":93,"Bang":"Cử nhân","SHSV":20211888},{"STT":94,"Bang":"Cử nhân","SHSV":20211920},{"STT":95,"Bang":"Cử nhân","SHSV":20211973},{"STT":96,"Bang":"Cử nhân","SHSV":20212000},{"STT":97,"Bang":"Cử nhân","SHSV":20211755},{"STT":98,"Bang":"Cử nhân","SHSV":20211764},{"STT":99,"Bang":"Cử nhân","SHSV":20211801},{"STT":100,"Bang":"Cử nhân","SHSV":20211911},{"STT":101,"Bang":"Cử nhân","SHSV":20211933},{"STT":102,"Bang":"Cử nhân","SHSV":20212077},{"STT":103,"Bang":"Cử nhân","SHSV":20212089},{"STT":104,"Bang":"Cử nhân","SHSV":20212007},{"STT":105,"Bang":"Cử nhân","SHSV":20212040},{"STT":106,"Bang":"Cử nhân","SHSV":20212112},{"STT":107,"Bang":"Cử nhân","SHSV":20211636},{"STT":108,"Bang":"Cử nhân","SHSV":20211656},{"STT":109,"Bang":"Cử nhân","SHSV":20211679},{"STT":110,"Bang":"Cử nhân","SHSV":20211757},{"STT":111,"Bang":"Cử nhân","SHSV":20211765},{"STT":112,"Bang":"Cử nhân","SHSV":20211781},{"STT":113,"Bang":"Cử nhân","SHSV":20211815},{"STT":114,"Bang":"Cử nhân","SHSV":20211945},{"STT":115,"Bang":"Cử nhân","SHSV":20211956},{"STT":116,"Bang":"Cử nhân","SHSV":20211830},{"STT":117,"Bang":"Cử nhân","SHSV":20211859},{"STT":118,"Bang":"Cử nhân","SHSV":20211935},{"STT":119,"Bang":"Cử nhân","SHSV":20211957},{"STT":120,"Bang":"Cử nhân","SHSV":20212048},{"STT":121,"Bang":"Cử nhân","SHSV":20212079},{"STT":122,"Bang":"Cử nhân","SHSV":20212011},{"STT":123,"Bang":"Cử nhân","SHSV":20212042},{"STT":124,"Bang":"Cử nhân","SHSV":20212058},{"STT":125,"Bang":"Cử nhân","SHSV":20212102},{"STT":126,"Bang":"Cử nhân","SHSV":20212114},{"STT":127,"Bang":"Cử nhân","SHSV":20211669},{"STT":128,"Bang":"Cử nhân","SHSV":20211747},{"STT":129,"Bang":"Cử nhân","SHSV":20211831},{"STT":130,"Bang":"Cử nhân","SHSV":20211891},{"STT":131,"Bang":"Cử nhân","SHSV":20211903},{"STT":132,"Bang":"Cử nhân","SHSV":20211924},{"STT":133,"Bang":"Cử nhân","SHSV":20211958},{"STT":134,"Bang":"Cử nhân","SHSV":20211992},{"STT":135,"Bang":"Cử nhân","SHSV":20212009},{"STT":136,"Bang":"Cử nhân","SHSV":20212043},{"STT":137,"Bang":"Cử nhân","SHSV":20210047},{"STT":138,"Bang":"Cử nhân","SHSV":20211650},{"STT":139,"Bang":"Cử nhân","SHSV":20211805},{"STT":140,"Bang":"Cử nhân","SHSV":20211904},{"STT":141,"Bang":"Cử nhân","SHSV":20211925},{"STT":142,"Bang":"Cử nhân","SHSV":20211993},{"STT":143,"Bang":"Cử nhân","SHSV":20210402},{"STT":144,"Bang":"Cử nhân","SHSV":20211807},{"STT":145,"Bang":"Cử nhân","SHSV":20211819},{"STT":146,"Bang":"Cử nhân","SHSV":20211838},{"STT":147,"Bang":"Cử nhân","SHSV":20211882},{"STT":148,"Bang":"Cử nhân","SHSV":20211893},{"STT":149,"Bang":"Cử nhân","SHSV":20211926},{"STT":150,"Bang":"Cử nhân","SHSV":20211942},{"STT":151,"Bang":"Cử nhân","SHSV":20211949},{"STT":152,"Bang":"Cử nhân","SHSV":20212047},{"STT":153,"Bang":"Cử nhân","SHSV":20211652},{"STT":154,"Bang":"Cử nhân","SHSV":20211661},{"STT":155,"Bang":"Cử nhân","SHSV":20211698},{"STT":156,"Bang":"Cử nhân","SHSV":20211796},{"STT":157,"Bang":"Cử nhân","SHSV":20211927},{"STT":158,"Bang":"Cử nhân","SHSV":20211978},{"STT":159,"Bang":"Cử nhân","SHSV":20212046},{"STT":160,"Bang":"Cử nhân","SHSV":20212071},{"STT":1,"Bang":"Kỹ sư","SHSV":20175119},{"STT":2,"Bang":"Kỹ sư","SHSV":20180623},{"STT":3,"Bang":"Kỹ sư","SHSV":20180641},{"STT":4,"Bang":"Kỹ sư","SHSV":20180930},{"STT":5,"Bang":"Kỹ sư","SHSV":20180636},{"STT":6,"Bang":"Kỹ sư","SHSV":20180778},{"STT":7,"Bang":"Kỹ sư","SHSV":20190971},{"STT":8,"Bang":"Kỹ sư","SHSV":20190862},{"STT":9,"Bang":"Kỹ sư","SHSV":20191151},{"STT":10,"Bang":"Kỹ sư","SHSV":20190731},{"STT":11,"Bang":"Kỹ sư","SHSV":20190897},{"STT":12,"Bang":"Kỹ sư","SHSV":20191163},{"STT":13,"Bang":"Kỹ sư","SHSV":20190846},{"STT":14,"Bang":"Kỹ sư","SHSV":20190888},{"STT":15,"Bang":"Kỹ sư","SHSV":20190806},{"STT":16,"Bang":"Kỹ sư","SHSV":20190867}];
+    const DATA = [{ "STT": 1, "Bang": "Cử nhân", "SHSV": 20191374 }, { "STT": 2, "Bang": "Cử nhân", "SHSV": 20191379 }, { "STT": 3, "Bang": "Cử nhân", "SHSV": 20211583 }, { "STT": 4, "Bang": "Cử nhân", "SHSV": 20210506 }, { "STT": 5, "Bang": "Cử nhân", "SHSV": 20211607 }, { "STT": 6, "Bang": "Cử nhân", "SHSV": 20211610 }, { "STT": 7, "Bang": "Cử nhân", "SHSV": 20211613 }, { "STT": 8, "Bang": "Cử nhân", "SHSV": 20191216 }, { "STT": 9, "Bang": "Cử nhân", "SHSV": 20191233 }, { "STT": 10, "Bang": "Cử nhân", "SHSV": 20191276 }, { "STT": 11, "Bang": "Cử nhân", "SHSV": 20191238 }, { "STT": 12, "Bang": "Cử nhân", "SHSV": 20201839 }, { "STT": 13, "Bang": "Cử nhân", "SHSV": 20201944 }, { "STT": 14, "Bang": "Cử nhân", "SHSV": 20201945 }, { "STT": 15, "Bang": "Cử nhân", "SHSV": 20212228 }, { "STT": 16, "Bang": "Cử nhân", "SHSV": 20212143 }, { "STT": 17, "Bang": "Cử nhân", "SHSV": 20212167 }, { "STT": 18, "Bang": "Cử nhân", "SHSV": 20212197 }, { "STT": 19, "Bang": "Cử nhân", "SHSV": 20212201 }, { "STT": 20, "Bang": "Cử nhân", "SHSV": 20212204 }, { "STT": 21, "Bang": "Cử nhân", "SHSV": 20212208 }, { "STT": 22, "Bang": "Cử nhân", "SHSV": 20212225 }, { "STT": 23, "Bang": "Cử nhân", "SHSV": 20220002 }, { "STT": 24, "Bang": "Cử nhân", "SHSV": 20180717 }, { "STT": 25, "Bang": "Cử nhân", "SHSV": 20190981 }, { "STT": 26, "Bang": "Cử nhân", "SHSV": 20191383 }, { "STT": 27, "Bang": "Cử nhân", "SHSV": 20190979 }, { "STT": 28, "Bang": "Cử nhân", "SHSV": 20201418 }, { "STT": 29, "Bang": "Cử nhân", "SHSV": 20201503 }, { "STT": 30, "Bang": "Cử nhân", "SHSV": 20201570 }, { "STT": 31, "Bang": "Cử nhân", "SHSV": 20201665 }, { "STT": 32, "Bang": "Cử nhân", "SHSV": 20201705 }, { "STT": 33, "Bang": "Cử nhân", "SHSV": 20201373 }, { "STT": 34, "Bang": "Cử nhân", "SHSV": 20201542 }, { "STT": 35, "Bang": "Cử nhân", "SHSV": 20201562 }, { "STT": 36, "Bang": "Cử nhân", "SHSV": 20201591 }, { "STT": 37, "Bang": "Cử nhân", "SHSV": 20201438 }, { "STT": 38, "Bang": "Cử nhân", "SHSV": 20201707 }, { "STT": 39, "Bang": "Cử nhân", "SHSV": 20201346 }, { "STT": 40, "Bang": "Cử nhân", "SHSV": 20201459 }, { "STT": 41, "Bang": "Cử nhân", "SHSV": 20201554 }, { "STT": 42, "Bang": "Cử nhân", "SHSV": 20201668 }, { "STT": 43, "Bang": "Cử nhân", "SHSV": 20201718 }, { "STT": 44, "Bang": "Cử nhân", "SHSV": 20201432 }, { "STT": 45, "Bang": "Cử nhân", "SHSV": 20201479 }, { "STT": 46, "Bang": "Cử nhân", "SHSV": 20201807 }, { "STT": 47, "Bang": "Cử nhân", "SHSV": 20201339 }, { "STT": 48, "Bang": "Cử nhân", "SHSV": 20201566 }, { "STT": 49, "Bang": "Cử nhân", "SHSV": 20201586 }, { "STT": 50, "Bang": "Cử nhân", "SHSV": 20201701 }, { "STT": 51, "Bang": "Cử nhân", "SHSV": 20200642 }, { "STT": 52, "Bang": "Cử nhân", "SHSV": 20201623 }, { "STT": 53, "Bang": "Cử nhân", "SHSV": 20201662 }, { "STT": 54, "Bang": "Cử nhân", "SHSV": 20201722 }, { "STT": 55, "Bang": "Cử nhân", "SHSV": 20201758 }, { "STT": 56, "Bang": "Cử nhân", "SHSV": 20201492 }, { "STT": 57, "Bang": "Cử nhân", "SHSV": 20201502 }, { "STT": 58, "Bang": "Cử nhân", "SHSV": 20201550 }, { "STT": 59, "Bang": "Cử nhân", "SHSV": 20201776 }, { "STT": 60, "Bang": "Cử nhân", "SHSV": 20211641 }, { "STT": 61, "Bang": "Cử nhân", "SHSV": 20211689 }, { "STT": 62, "Bang": "Cử nhân", "SHSV": 20211699 }, { "STT": 63, "Bang": "Cử nhân", "SHSV": 20211715 }, { "STT": 64, "Bang": "Cử nhân", "SHSV": 20211763 }, { "STT": 65, "Bang": "Cử nhân", "SHSV": 20211863 }, { "STT": 66, "Bang": "Cử nhân", "SHSV": 20211928 }, { "STT": 67, "Bang": "Cử nhân", "SHSV": 20211938 }, { "STT": 68, "Bang": "Cử nhân", "SHSV": 20211711 }, { "STT": 69, "Bang": "Cử nhân", "SHSV": 20211716 }, { "STT": 70, "Bang": "Cử nhân", "SHSV": 20211824 }, { "STT": 71, "Bang": "Cử nhân", "SHSV": 20211853 }, { "STT": 72, "Bang": "Cử nhân", "SHSV": 20211939 }, { "STT": 73, "Bang": "Cử nhân", "SHSV": 20211986 }, { "STT": 74, "Bang": "Cử nhân", "SHSV": 20211998 }, { "STT": 75, "Bang": "Cử nhân", "SHSV": 20212085 }, { "STT": 76, "Bang": "Cử nhân", "SHSV": 20212004 }, { "STT": 77, "Bang": "Cử nhân", "SHSV": 20212015 }, { "STT": 78, "Bang": "Cử nhân", "SHSV": 20210858 }, { "STT": 79, "Bang": "Cử nhân", "SHSV": 20212108 }, { "STT": 80, "Bang": "Cử nhân", "SHSV": 20211701 }, { "STT": 81, "Bang": "Cử nhân", "SHSV": 20212034 }, { "STT": 82, "Bang": "Cử nhân", "SHSV": 20212053 }, { "STT": 83, "Bang": "Cử nhân", "SHSV": 20212064 }, { "STT": 84, "Bang": "Cử nhân", "SHSV": 20211770 }, { "STT": 85, "Bang": "Cử nhân", "SHSV": 20211826 }, { "STT": 86, "Bang": "Cử nhân", "SHSV": 20211941 }, { "STT": 87, "Bang": "Cử nhân", "SHSV": 20211634 }, { "STT": 88, "Bang": "Cử nhân", "SHSV": 20211645 }, { "STT": 89, "Bang": "Cử nhân", "SHSV": 20211719 }, { "STT": 90, "Bang": "Cử nhân", "SHSV": 20211771 }, { "STT": 91, "Bang": "Cử nhân", "SHSV": 20210391 }, { "STT": 92, "Bang": "Cử nhân", "SHSV": 20211844 }, { "STT": 93, "Bang": "Cử nhân", "SHSV": 20211888 }, { "STT": 94, "Bang": "Cử nhân", "SHSV": 20211920 }, { "STT": 95, "Bang": "Cử nhân", "SHSV": 20211973 }, { "STT": 96, "Bang": "Cử nhân", "SHSV": 20212000 }, { "STT": 97, "Bang": "Cử nhân", "SHSV": 20211755 }, { "STT": 98, "Bang": "Cử nhân", "SHSV": 20211764 }, { "STT": 99, "Bang": "Cử nhân", "SHSV": 20211801 }, { "STT": 100, "Bang": "Cử nhân", "SHSV": 20211911 }, { "STT": 101, "Bang": "Cử nhân", "SHSV": 20211933 }, { "STT": 102, "Bang": "Cử nhân", "SHSV": 20212077 }, { "STT": 103, "Bang": "Cử nhân", "SHSV": 20212089 }, { "STT": 104, "Bang": "Cử nhân", "SHSV": 20212007 }, { "STT": 105, "Bang": "Cử nhân", "SHSV": 20212040 }, { "STT": 106, "Bang": "Cử nhân", "SHSV": 20212112 }, { "STT": 107, "Bang": "Cử nhân", "SHSV": 20211636 }, { "STT": 108, "Bang": "Cử nhân", "SHSV": 20211656 }, { "STT": 109, "Bang": "Cử nhân", "SHSV": 20211679 }, { "STT": 110, "Bang": "Cử nhân", "SHSV": 20211757 }, { "STT": 111, "Bang": "Cử nhân", "SHSV": 20211765 }, { "STT": 112, "Bang": "Cử nhân", "SHSV": 20211781 }, { "STT": 113, "Bang": "Cử nhân", "SHSV": 20211815 }, { "STT": 114, "Bang": "Cử nhân", "SHSV": 20211945 }, { "STT": 115, "Bang": "Cử nhân", "SHSV": 20211956 }, { "STT": 116, "Bang": "Cử nhân", "SHSV": 20211830 }, { "STT": 117, "Bang": "Cử nhân", "SHSV": 20211859 }, { "STT": 118, "Bang": "Cử nhân", "SHSV": 20211935 }, { "STT": 119, "Bang": "Cử nhân", "SHSV": 20211957 }, { "STT": 120, "Bang": "Cử nhân", "SHSV": 20212048 }, { "STT": 121, "Bang": "Cử nhân", "SHSV": 20212079 }, { "STT": 122, "Bang": "Cử nhân", "SHSV": 20212011 }, { "STT": 123, "Bang": "Cử nhân", "SHSV": 20212042 }, { "STT": 124, "Bang": "Cử nhân", "SHSV": 20212058 }, { "STT": 125, "Bang": "Cử nhân", "SHSV": 20212102 }, { "STT": 126, "Bang": "Cử nhân", "SHSV": 20212114 }, { "STT": 127, "Bang": "Cử nhân", "SHSV": 20211669 }, { "STT": 128, "Bang": "Cử nhân", "SHSV": 20211747 }, { "STT": 129, "Bang": "Cử nhân", "SHSV": 20211831 }, { "STT": 130, "Bang": "Cử nhân", "SHSV": 20211891 }, { "STT": 131, "Bang": "Cử nhân", "SHSV": 20211903 }, { "STT": 132, "Bang": "Cử nhân", "SHSV": 20211924 }, { "STT": 133, "Bang": "Cử nhân", "SHSV": 20211958 }, { "STT": 134, "Bang": "Cử nhân", "SHSV": 20211992 }, { "STT": 135, "Bang": "Cử nhân", "SHSV": 20212009 }, { "STT": 136, "Bang": "Cử nhân", "SHSV": 20212043 }, { "STT": 137, "Bang": "Cử nhân", "SHSV": 20210047 }, { "STT": 138, "Bang": "Cử nhân", "SHSV": 20211650 }, { "STT": 139, "Bang": "Cử nhân", "SHSV": 20211805 }, { "STT": 140, "Bang": "Cử nhân", "SHSV": 20211904 }, { "STT": 141, "Bang": "Cử nhân", "SHSV": 20211925 }, { "STT": 142, "Bang": "Cử nhân", "SHSV": 20211993 }, { "STT": 143, "Bang": "Cử nhân", "SHSV": 20210402 }, { "STT": 144, "Bang": "Cử nhân", "SHSV": 20211807 }, { "STT": 145, "Bang": "Cử nhân", "SHSV": 20211819 }, { "STT": 146, "Bang": "Cử nhân", "SHSV": 20211838 }, { "STT": 147, "Bang": "Cử nhân", "SHSV": 20211882 }, { "STT": 148, "Bang": "Cử nhân", "SHSV": 20211893 }, { "STT": 149, "Bang": "Cử nhân", "SHSV": 20211926 }, { "STT": 150, "Bang": "Cử nhân", "SHSV": 20211942 }, { "STT": 151, "Bang": "Cử nhân", "SHSV": 20211949 }, { "STT": 152, "Bang": "Cử nhân", "SHSV": 20212047 }, { "STT": 153, "Bang": "Cử nhân", "SHSV": 20211652 }, { "STT": 154, "Bang": "Cử nhân", "SHSV": 20211661 }, { "STT": 155, "Bang": "Cử nhân", "SHSV": 20211698 }, { "STT": 156, "Bang": "Cử nhân", "SHSV": 20211796 }, { "STT": 157, "Bang": "Cử nhân", "SHSV": 20211927 }, { "STT": 158, "Bang": "Cử nhân", "SHSV": 20211978 }, { "STT": 159, "Bang": "Cử nhân", "SHSV": 20212046 }, { "STT": 160, "Bang": "Cử nhân", "SHSV": 20212071 }, { "STT": 1, "Bang": "Kỹ sư", "SHSV": 20175119 }, { "STT": 2, "Bang": "Kỹ sư", "SHSV": 20180623 }, { "STT": 3, "Bang": "Kỹ sư", "SHSV": 20180641 }, { "STT": 4, "Bang": "Kỹ sư", "SHSV": 20180930 }, { "STT": 5, "Bang": "Kỹ sư", "SHSV": 20180636 }, { "STT": 6, "Bang": "Kỹ sư", "SHSV": 20180778 }, { "STT": 7, "Bang": "Kỹ sư", "SHSV": 20190971 }, { "STT": 8, "Bang": "Kỹ sư", "SHSV": 20190862 }, { "STT": 9, "Bang": "Kỹ sư", "SHSV": 20191151 }, { "STT": 10, "Bang": "Kỹ sư", "SHSV": 20190731 }, { "STT": 11, "Bang": "Kỹ sư", "SHSV": 20190897 }, { "STT": 12, "Bang": "Kỹ sư", "SHSV": 20191163 }, { "STT": 13, "Bang": "Kỹ sư", "SHSV": 20190846 }, { "STT": 14, "Bang": "Kỹ sư", "SHSV": 20190888 }, { "STT": 15, "Bang": "Kỹ sư", "SHSV": 20190806 }, { "STT": 16, "Bang": "Kỹ sư", "SHSV": 20190867 }];
 
     // Build lookup map: SHSV → record
     const lookup_map = {};
@@ -385,12 +425,12 @@
           <div class="result-found">
             <span class="result-badge ${badgeClass}">${record.Bang}</span>
             <div class="stt-display">
-              <div class="stt-label">Số thứ tự nhận bằng</div>
+              <div class="stt-label">Số thứ tự ký sổ</div>
               <div class="stt-number">${record.STT}</div>
             </div>
             <div class="stt-info-row">
               <div class="info-chip">
-                <div class="info-chip-label">SHSV</div>
+                <div class="info-chip-label">MSSV</div>
                 <div class="info-chip-value">${record.SHSV}</div>
               </div>
               <div class="info-chip">
@@ -414,4 +454,5 @@
     }
   </script>
 </body>
+
 </html>
